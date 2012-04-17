@@ -3397,4 +3397,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             phone.setPolicyDataEnabled(enabled);
         }
     }
+
+    public int getLteOnGsmMode() {
+        return mPhone.getLteOnGsmMode();
+    }
 }
