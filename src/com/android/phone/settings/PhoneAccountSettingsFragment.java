@@ -55,7 +55,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private static final String USE_SIP_PREF_KEY = "use_sip_calling_options_key";
     private static final String SIP_RECEIVE_CALLS_PREF_KEY = "sip_receive_calls_key";
 
-    private static final String SHOW_DURATION_KEY = "duration_enable_key";
     private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
 
     private static final String LEGACY_ACTION_CONFIGURE_PHONE_ACCOUNT =
@@ -82,7 +81,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private ListPreference mUseSipCalling;
     private CheckBoxPreference mSipReceiveCallsPreference;
     private SipPreferences mSipPreferences;
-    private CheckBoxPreference mShowDurationCheckBox;
     private CheckBoxPreference mButtonProximity;
 
     @Override
@@ -207,15 +205,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                     getPreferenceScreen().findPreference(SIP_SETTINGS_CATEGORY_PREF_KEY));
         }
 
-        mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
-        if (mShowDurationCheckBox != null) {
-            mShowDurationCheckBox.setOnPreferenceChangeListener(this);
-            boolean checked = Settings.System.getInt(getContext().getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, 1) == 1;
-                    mShowDurationCheckBox.setChecked(checked);
-                    mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
-                            : R.string.duration_disable_summary);
-        }
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
         if (mButtonProximity != null) {
             mButtonProximity.setOnPreferenceChangeListener(this);
@@ -249,13 +238,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                     handleSipReceiveCallsOption(isEnabled);
                 }
             }).start();
-            return true;
-        } else if (pref == mShowDurationCheckBox) {
-            boolean checked = (Boolean) objValue;
-            Settings.System.putInt(getContext().getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
-            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
-                    : R.string.duration_disable_summary);
             return true;
         } else if (pref == mButtonProximity) {
             boolean checked = (Boolean) objValue;

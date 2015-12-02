@@ -125,11 +125,6 @@ public class Constants {
     }
 
     /**
-        * display duration info after end call. 0 = Off 1 = On
-        */
-    public static final String SETTINGS_SHOW_CALL_DURATION = "show_call_duration";
-
-    /**
      * enable proximity sensor or not. 0 = Off 1 = On
      */
     public static final String SETTINGS_PROXIMITY_SENSOR = "proximity_sensor";
