@@ -186,7 +186,6 @@
         <item name="android:textColor">?android:attr/textColorPrimaryInverseDisableOnly</item>
     </style>
 
-<<<<<<< HEAD
     <style name="NetworkOperatorsSettingsTheme" parent="@style/Theme.Material.Settings"/>
 
     <style name="NetworkOperatorsSettingsTheme" parent="@android:style/Theme.Material.DayNight">
