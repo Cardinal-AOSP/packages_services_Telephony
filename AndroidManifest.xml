@@ -150,7 +150,9 @@
         <activity android:name="EmergencyDialer"
             android:label="@string/emergencyDialerIconLabel"
             android:theme="@style/EmergencyDialerTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing">
+
             <intent-filter>
                 <action android:name="com.android.phone.EmergencyDialer.DIAL" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -174,6 +176,24 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="vnd.android.cursor.item/sim-contact" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="ContactScreenActivity"
+            android:label="@string/contactScreen">
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="ExportContactsToSim"
+            android:label="@string/exportContactScreen">
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -391,6 +411,15 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="CallForwardType"
+                android:label="@string/call_forward_option"
+                android:configChanges="orientation|screenSize|keyboardHidden"
+                android:theme="@style/SettingsLight">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <activity android:name="CellBroadcastSms"
             android:label="@string/cell_broadcast_sms"
             android:theme="@android:style/Theme.Holo.DialogWhenLarge">
@@ -584,6 +613,14 @@
                 android:exported="false">
         </activity>
 
+        <activity android:name="CallBarring" android:label="@string/call_barring"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <activity android:name="com.android.phone.settings.PhoneAccountSettingsActivity"
             android:label="@string/phone_accounts"
             android:theme="@style/DialerSettingsLight">
@@ -687,5 +724,23 @@
               <data android:scheme="package"/>
           </intent-filter>
        </receiver>
+
+       <activity
+           android:name="CdmaCallForwardOptions"
+           android:configChanges="orientation|screenSize|keyboardHidden"
+           android:theme="@style/SettingsLight"
+           android:label="@string/labelCF" >
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+           </intent-filter>
+       </activity>
+
+       <activity
+           android:name="ManagedRoaming"
+           android:configChanges="orientation|screenSize|keyboardHidden"
+           android:theme="@android:style/Theme.Translucent.NoTitleBar"
+           android:excludeFromRecents="true">
+       </activity>
+
     </application>
 </manifest>
