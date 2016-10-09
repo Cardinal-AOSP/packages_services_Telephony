@@ -1492,4 +1492,9 @@
     <string name="exportAllcontatsFailed"> Failed to export all contacts to SIM !!!</string>
     <string name="exportAllcontatsNoContacts"> No Contacts found to export to SIM !!!</string>
     <string name="cursorError"> Cursor is not having proper data !!! </string>
+
+    <string name="CFActivate">Activate</string>
+    <string name="CFDeactivate">Deactivate</string>
+    <string name="null_phone_number">Phone number cannot be null !</string>
+    <string name="labelCFDeactAll">Deactivate All</string>
 </resources>
